@@ -1,5 +1,7 @@
 # Minitalk in two process using signals
 
+![Uploading Screen Recording 2023-11-13 at 11.07.09 PM.gif…]()
+
 ## Project Information
 
 ### About
@@ -14,7 +16,20 @@ The purpose of this project is to code a small data exchange program using *UNIX
 - Add reception acknowledgement system
 - Support Unicode characters
 
-## Compilation
+<h3 align="left">
+	:computer: Usage
+</h3>
+1- Clone this repository: </br>
+<code>git clone https://github.com/kay30kim/Minitalk_server_client.git</code> </br></br>
 
-1. Clone repo including [`libft`](../../../42-libft) submodule via `git clone https://github.com/kay30kim/Minitalk_server_client.git`.
-2. Compile files into `server` & `client` executables via `make -C 42-minitalk`.
+2- Navigate to minitalk folder: </br>
+<code>cd Minitalk_server_client</code><br /><br />
+
+3- Run with make or make bonus: </br>
+<code>make</code> or <code>make bonus</code><br /><br />
+
+4- Start the server to get his PID with: </br>
+<code>./server</code> or <code>./server_bonus</code><br /><br />
+
+5- Start the client and send message with: </br>
+<code>./client [PID] [Message]</code> or <code>./client_bonus [PID] [Message]</code><br /><br />
