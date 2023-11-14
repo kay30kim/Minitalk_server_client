@@ -6,7 +6,7 @@
 /*   By: kyung-ki <kyung-ki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 14:21:27 by kyung-ki          #+#    #+#             */
-/*   Updated: 2023/10/25 16:20:19 by kyung-ki         ###   ########.fr       */
+/*   Updated: 2023/11/14 13:13:51 by kyung-ki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,3 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)&s[i]);
 	return (0);
 }
-/*
-#include <string.h>
-#include <stdio.h>
-int	main()
-{
-	char	str[] = "  Hellow World ! ";
-	char	c = 'W';
-
-	printf("%s\n", ft_strchr(str, c));
-	printf("%s\n", strchr(str,c));
-	return (0);
-}*/

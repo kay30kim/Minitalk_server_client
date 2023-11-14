@@ -6,7 +6,7 @@
 /*   By: kyung-ki <kyung-ki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 15:57:41 by kyung-ki          #+#    #+#             */
-/*   Updated: 2023/10/29 16:47:35 by kyung-ki         ###   ########.fr       */
+/*   Updated: 2023/11/14 13:20:27 by kyung-ki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,25 +77,3 @@ char	*ft_itoa(int n)
 	tmp[--i] = (num % 10) + '0';
 	return (tmp);
 }
-/*
-int	main(void)
-{
-	int number = -2147483648;
-	int num2 = 0;
-	int num3 = -2;
-	char *str = ft_itoa(number);
-	char *str2 = ft_itoa(num2);
-	char *str3 = ft_itoa(num3);
-
-	printf("Integer: %d\n", number);
-	printf("String: %s\n", str);
-	printf("Integer: %d\n", num2);
-	printf("String: %s\n", str2);
-	printf("Integer: %d\n", num3);
-	printf("String: %s\n", str3);
-	
-	free(str);
-	free(str2);
-	free(str3);
-	return (0);
-}*/

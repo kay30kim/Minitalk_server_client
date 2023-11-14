@@ -6,7 +6,7 @@
 /*   By: kyung-ki <kyung-ki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 12:31:52 by kyung-ki          #+#    #+#             */
-/*   Updated: 2023/10/25 16:22:43 by kyung-ki         ###   ########.fr       */
+/*   Updated: 2023/11/14 13:14:11 by kyung-ki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	tmp[i] = '\0';
 	return (tmp);
 }
-/*
-int	main(void)
-{
-	const char	*input = "   Hello, World!   ";
-	const char	*charset = " ";
-	char		*trimmed;
-
-	trimmed = ft_strtrim(input, charset);
-	if (trimmed != NULL)
-	{
-		printf("Original: \"%s\"\n", input);
-		printf("Trimmed: \"%s\"\n", trimmed);
-		free(trimmed);
-	}
-	return (0);
-}
-*/

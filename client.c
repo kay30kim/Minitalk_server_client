@@ -6,13 +6,13 @@
 /*   By: kyung-ki <kyung-ki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:19:04 by kyung-ki          #+#    #+#             */
-/*   Updated: 2023/11/14 12:41:26 by kyung-ki         ###   ########.fr       */
+/*   Updated: 2023/11/14 13:22:56 by kyung-ki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	sendMessage(int pid, char *str)
+void	send_message(int pid, char *str)
 {
 	int	lshift;
 	int	i;
@@ -27,7 +27,7 @@ void	sendMessage(int pid, char *str)
 				kill(pid, SIGUSR1);
 			else
 				kill(pid, SIGUSR2);
-			usleep(1000);
+			usleep(100);
 			lshift++;
 		}
 		i++;
@@ -35,7 +35,8 @@ void	sendMessage(int pid, char *str)
 	}
 }
 
-int	main(int argc, char **argv){
+int	main(int argc, char **argv)
+{
 	int	pid;
 	int	i;
 
@@ -46,8 +47,8 @@ int	main(int argc, char **argv){
 		if (!argv[0])
 			printf("No empty string\n");
 		pid = ft_atoi(argv[1]);
-		sendMessage(pid, argv[2]);
-		sendMessage(pid, "\n");
+		send_message(pid, argv[2]);
+		send_message(pid, "\n");
 	}
 	else
 	{

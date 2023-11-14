@@ -6,7 +6,7 @@
 #    By: kyung-ki <kyung-ki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 13:13:18 by kyung-ki          #+#    #+#              #
-#    Updated: 2023/11/12 12:22:09 by kyung-ki         ###   ########.fr        #
+#    Updated: 2023/11/14 13:17:46 by kyung-ki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ FTPUT_DIR	=	ft_put/
 FTPUT		=	ft_putchar_fd ft_putendl_fd ft_putnbr_fd ft_putstr_fd
 
 FTTO_DIR	=	ft_to/
-FTTO		=	ft_atoi ft_itoa ft_tolower ft_toupper
+FTTO		=	ft_atoi ft_tolower ft_toupper
 
 FTSTR_DIR	=	ft_string/
 FTSTR		=	ft_split ft_strchr ft_strdup ft_striteri ft_strjoin \

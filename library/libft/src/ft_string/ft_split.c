@@ -6,7 +6,7 @@
 /*   By: kyung-ki <kyung-ki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 12:29:50 by kyung-ki          #+#    #+#             */
-/*   Updated: 2023/10/26 16:23:10 by kyung-ki         ###   ########.fr       */
+/*   Updated: 2023/11/14 13:13:30 by kyung-ki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,53 +87,3 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (ft_split_go(s, c, res));
 }
-/*
-#include <stdio.h>
-int main(void)
-{
-    const char *input = "   long  space  check  ";
-	char *input2 = "xxxxxxxxhello!";
-    const char delimiter = 'x';
-
-    char **result = ft_split(input, delimiter);
-
-    if (result) {
-        for (int i = 0; result[i] != NULL; i++) {
-            printf("Substring %d: >%s<\n", i + 1, result[i]);
-            free(result[i]); // Free each substring
-        }
-
-        free(result); // Free the array of substrings
-    } else {
-        printf("Memory allocation failed.\n");
-    }
-
-    return 0;
-}
-
-void *ft_free_table(char **table)
-{
-	int i;
-
-	i = 0;
-	while(table[i])
-	{
-		free(table[i])
-		i++;
-	}
-	free(table);
-	return (NULL);
-}
-*/
-/*
-need to be care about !s
-while (s && s[i])
-	{
-		while (s[i] && s[i] == c)
-			i++;
-		if (s[i]) // -> should not i++
-			cnt++;
-		while (s[i] && s[i] != c)
-			i++;
-	}
-*/

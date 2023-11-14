@@ -6,7 +6,7 @@
 /*   By: kyung-ki <kyung-ki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 12:32:13 by kyung-ki          #+#    #+#             */
-/*   Updated: 2023/10/25 11:22:53 by kyung-ki         ###   ########.fr       */
+/*   Updated: 2023/11/14 13:14:35 by kyung-ki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	return (tmp);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-int main()
-{
-	char str1[] = "abcdefghijklmnop";
-	printf("%s\n", ft_substr(str1, 3, 0));
-	printf("%s\n", ft_substr(str1, 3, 5));
-	printf("%s\n", ft_substr(str1, 3, 20));
-	return (0);
-}*/
-/*
-most hard part
-if (ft_strlen(s + start) < len)
-	len = ft_strlen(s + start);
-*/

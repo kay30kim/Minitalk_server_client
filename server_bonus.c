@@ -6,7 +6,7 @@
 /*   By: kyung-ki <kyung-ki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:47:18 by kyung-ki          #+#    #+#             */
-/*   Updated: 2023/11/14 13:00:05 by kyung-ki         ###   ########.fr       */
+/*   Updated: 2023/11/14 13:45:34 by kyung-ki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,35 +19,40 @@ void	listen_handler(int sig, siginfo_t *info, void *content)
 
 	(void)content;
 	if (sig == SIGUSR2)
+	{
 		c = c << 1;
+		if (kill(info->si_pid, SIGUSR2) == -1)
+			exit(EXIT_FAILURE);
+	}
 	else if (sig == SIGUSR1)
+	{
 		c = (c << 1) | 0b00000001;
+		if (kill(info->si_pid, SIGUSR1) == -1)
+			exit(EXIT_FAILURE);
+	}
+	usleep(100);
 	i++;
 	if (i == 8)
 	{
-		ft_printf("%c",c);
+		ft_printf("%c", c);
 		i = 0;
 		c = 0;
-		kill(info->si_pid, SIGUSR1);
-		return ;
 	}
-	kill(info->si_pid, SIGUSR2);
 }
 
 int	main(void)
 {
 	struct sigaction	sig;
+
 	ft_printf("PID : %d\n", getpid());
 	while (1)
 	{
 		sig.sa_sigaction = &listen_handler;
 		sig.sa_flags = SA_SIGINFO;
 		if (sigaction(SIGUSR1, &sig, NULL) == -1)
-			ft_putstr_fd("Unable to send SIGUSR1\n", 2);
+			ft_putstr_fd("SIGUSR1 error\n", 2);
 		if (sigaction(SIGUSR2, &sig, NULL) == -1)
-			ft_putstr_fd("Unable to send SIGUSR2\n", 2);
-		//signal(SIGUSR1, listen_handler);
-		//signal(SIGUSR2, listen_handler);
+			ft_putstr_fd("SIGUSR2 error\n", 2);
 	}
 	return (0);
 }

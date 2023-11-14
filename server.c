@@ -6,7 +6,7 @@
 /*   By: kyung-ki <kyung-ki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:18:33 by kyung-ki          #+#    #+#             */
-/*   Updated: 2023/11/14 10:47:17 by kyung-ki         ###   ########.fr       */
+/*   Updated: 2023/11/14 13:06:36 by kyung-ki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	listen_handler(int sig)
 	i++;
 	if (i == 8)
 	{
-		ft_printf("%c",c);
+		ft_printf("%c", c);
 		i = 0;
 		c = 0;
 	}
 }
 
-int	main()
+int	main(void)
 {
 	ft_printf("PID : %d\n", getpid());
 	while (1)
