@@ -6,7 +6,7 @@
 #    By: kyung-ki <kyung-ki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/13 21:13:41 by kyung-ki          #+#    #+#              #
-#    Updated: 2023/11/13 22:26:08 by kyung-ki         ###   ########.fr        #
+#    Updated: 2023/11/13 22:50:07 by kyung-ki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,11 +44,11 @@ $(CLIENT) : $(CLIENT_OBJS)
 	$(CC) $(CFLAGS) $(CLIENT_OBJS) $(LIBS) $(HEADERS) -o $(CLIENT)
 
 clean :
-	rm -rf $(OBJS_SERVER) $(OBJS_CLIENT)
+	rm -rf $(SERVER_OBJS) $(CLIENT_OBJS)
 	$(MAKE) -C $(LIBFT) clean
 	$(MAKE) -C $(LIBPF) clean
 
-fclean :
+fclean : clean
 	rm -rf $(SERVER) $(CLIENT)
 	$(MAKE) -C $(LIBFT) fclean
 	$(MAKE) -C $(LIBPF) fclean
