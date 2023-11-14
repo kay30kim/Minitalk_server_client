@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyung-ki <kyung-ki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 17:18:33 by kyung-ki          #+#    #+#             */
-/*   Updated: 2023/11/14 10:47:17 by kyung-ki         ###   ########.fr       */
+/*   Created: 2023/11/14 10:47:18 by kyung-ki          #+#    #+#             */
+/*   Updated: 2023/11/14 13:00:05 by kyung-ki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	listen_handler(int sig)
+void	listen_handler(int sig, siginfo_t *info, void *content)
 {
 	static int				i = 0;
 	static unsigned char	c = 0;
 
+	(void)content;
 	if (sig == SIGUSR2)
 		c = c << 1;
 	else if (sig == SIGUSR1)
@@ -27,16 +28,26 @@ void	listen_handler(int sig)
 		ft_printf("%c",c);
 		i = 0;
 		c = 0;
+		kill(info->si_pid, SIGUSR1);
+		return ;
 	}
+	kill(info->si_pid, SIGUSR2);
 }
 
-int	main()
+int	main(void)
 {
+	struct sigaction	sig;
 	ft_printf("PID : %d\n", getpid());
 	while (1)
 	{
-		signal(SIGUSR1, listen_handler);
-		signal(SIGUSR2, listen_handler);
+		sig.sa_sigaction = &listen_handler;
+		sig.sa_flags = SA_SIGINFO;
+		if (sigaction(SIGUSR1, &sig, NULL) == -1)
+			ft_putstr_fd("Unable to send SIGUSR1\n", 2);
+		if (sigaction(SIGUSR2, &sig, NULL) == -1)
+			ft_putstr_fd("Unable to send SIGUSR2\n", 2);
+		//signal(SIGUSR1, listen_handler);
+		//signal(SIGUSR2, listen_handler);
 	}
 	return (0);
 }

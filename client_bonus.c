@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kyung-ki <kyung-ki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 17:19:04 by kyung-ki          #+#    #+#             */
-/*   Updated: 2023/11/14 12:41:26 by kyung-ki         ###   ########.fr       */
+/*   Created: 2023/11/14 10:46:49 by kyung-ki          #+#    #+#             */
+/*   Updated: 2023/11/14 12:59:05 by kyung-ki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,18 @@ void	sendMessage(int pid, char *str)
 	}
 }
 
+void	handler(int signal)
+{
+	static int cnt = 0;
+
+	if (signal == SIGUSR1)
+		ft_printf("[%d] Singal sending back accept\n", cnt++);
+}
+
 int	main(int argc, char **argv){
-	int	pid;
-	int	i;
+	int					pid;
+	int					i;
+	struct sigaction	sig;
 
 	i = 0;
 	ft_printf("%d\n", getpid());
@@ -45,9 +54,13 @@ int	main(int argc, char **argv){
 	{
 		if (!argv[0])
 			printf("No empty string\n");
+		sig.sa_handler = &handler;
+		sig.sa_flags = SA_SIGINFO;
+		sigaction(SIGUSR1, &sig, NULL);
+		sigaction(SIGUSR2, &sig, NULL);
 		pid = ft_atoi(argv[1]);
 		sendMessage(pid, argv[2]);
-		sendMessage(pid, "\n");
+		sendMessage(pid,"\n");
 	}
 	else
 	{
@@ -55,17 +68,3 @@ int	main(int argc, char **argv){
 	}
 	return (0);
 }
-
-/*
-		int bit = *(str);
-		printf("char : %c  %d => ",bit, bit);
-		for (int i = 0; i <8; i++)
-		{
-			if (bit % 2 == 0)
-				printf("0");
-			else
-				printf("1");
-			bit /= 2;
-		}
-		printf("\n");
-*/

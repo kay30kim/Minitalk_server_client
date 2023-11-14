@@ -6,7 +6,7 @@
 #    By: kyung-ki <kyung-ki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/13 21:13:41 by kyung-ki          #+#    #+#              #
-#    Updated: 2023/11/13 22:50:07 by kyung-ki         ###   ########.fr        #
+#    Updated: 2023/11/14 12:37:28 by kyung-ki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,13 @@ SERVER		=	server
 CLIENT		=	client
 SERVER_SRCS	=	server.c
 CLIENT_SRCS	=	client.c
+SER_BON_SRCS=	server_bonus.c
+CLI_BON_SRCS=	client_bonus.c
 
 SERVER_OBJS	=	$(SERVER_SRCS:.c=.o)
 CLIENT_OBJS	=	$(CLIENT_SRCS:.c=.o)
+SER_BON_OBJS=	$(SER_BON_SRCS:.c=.o)
+CLI_BON_OBJS=	$(CLI_BON_SRCS:.c=.o)
 
 LIBFT		=	./library/libft
 LIBPF		=	./library/ft_printf
@@ -54,3 +58,9 @@ fclean : clean
 	$(MAKE) -C $(LIBPF) fclean
 
 re : fclean all
+
+bonus : libft libpf $(SER_BON_OBJS) $(CLI_BON_OBJS)
+	$(CC) $(CFLAGS) $(SER_BON_OBJS) $(LIBS) $(HEADERS) -o $(SERVER)
+	$(CC) $(CFLAGS) $(CLI_BON_OBJS) $(LIBS) $(HEADERS) -o $(CLIENT)
+
+.PHONY : all libft libpf clean fclean re
