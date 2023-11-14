@@ -1,6 +1,6 @@
 # Minitalk in two process using signals
 
-<img width="80%" src= "https://github.com/kay30kim/Minitalk_server_client/assets/59407632/d358c2d9-fdfc-40b0-aba3-becc70e41619"/>
+<img width="100%" src= "https://github.com/kay30kim/Minitalk_server_client/assets/59407632/d358c2d9-fdfc-40b0-aba3-becc70e41619"/>
 
 ## Project Information
 
