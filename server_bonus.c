@@ -6,7 +6,7 @@
 /*   By: kyung-ki <kyung-ki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:47:18 by kyung-ki          #+#    #+#             */
-/*   Updated: 2023/11/14 13:45:34 by kyung-ki         ###   ########.fr       */
+/*   Updated: 2023/11/14 14:39:41 by kyung-ki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,16 @@ void	listen_handler(int sig, siginfo_t *info, void *content)
 
 	(void)content;
 	if (sig == SIGUSR2)
-	{
 		c = c << 1;
-		if (kill(info->si_pid, SIGUSR2) == -1)
-			exit(EXIT_FAILURE);
-	}
 	else if (sig == SIGUSR1)
-	{
 		c = (c << 1) | 0b00000001;
-		if (kill(info->si_pid, SIGUSR1) == -1)
-			exit(EXIT_FAILURE);
-	}
-	usleep(100);
 	i++;
 	if (i == 8)
 	{
 		ft_printf("%c", c);
 		i = 0;
 		c = 0;
+		kill(info->si_pid, SIGUSR1);
 	}
 }
 

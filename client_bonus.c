@@ -6,7 +6,7 @@
 /*   By: kyung-ki <kyung-ki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:46:49 by kyung-ki          #+#    #+#             */
-/*   Updated: 2023/11/14 13:29:09 by kyung-ki         ###   ########.fr       */
+/*   Updated: 2023/11/14 14:40:22 by kyung-ki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,8 @@ void	send_message(int pid, char *str)
 
 void	handler(int signal)
 {
-	static int				i = 0;
-	static unsigned char	c = 0;
-
-	if (signal == SIGUSR2)
-		c = c << 1;
-	else if (signal == SIGUSR1)
-		c = (c << 1) | 0b00000001;
-	i++;
-	if (i == 8)
-	{
-		ft_printf("%c", c);
-		i = 0;
-		c = 0;
-	}
+	if (signal == SIGUSR1)
+		ft_printf("Singal sending back accept\n");
 }
 
 int	main(int argc, char **argv)
@@ -60,7 +48,6 @@ int	main(int argc, char **argv)
 	struct sigaction	sig;
 
 	i = 0;
-	ft_printf("%d\n", getpid());
 	if (argc == 3)
 	{
 		if (!argv[0])
@@ -79,3 +66,19 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
+	/*
+	static int				i = 0;
+	static unsigned char	c = 0;
+
+	if (signal == SIGUSR2)
+		c = c << 1;
+	else if (signal == SIGUSR1)
+		c = (c << 1) | 0b00000001;
+	i++;
+	if (i == 8)
+	{
+		ft_printf("%c", c);
+		i = 0;
+		c = 0;
+	}
+	*/

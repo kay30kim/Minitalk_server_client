@@ -6,7 +6,7 @@
 /*   By: kyung-ki <kyung-ki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 17:19:04 by kyung-ki          #+#    #+#             */
-/*   Updated: 2023/11/14 13:22:56 by kyung-ki         ###   ########.fr       */
+/*   Updated: 2023/11/14 14:17:17 by kyung-ki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int	main(int argc, char **argv)
 	int	i;
 
 	i = 0;
-	ft_printf("%d\n", getpid());
 	if (argc == 3)
 	{
 		if (!argv[0])
