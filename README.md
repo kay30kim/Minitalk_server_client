@@ -32,6 +32,7 @@ Implement a client-server system for data exchange using UNIX signals. This intr
 - Avoiding memory leaks and justifying the use of global variables.
 - UNIX signals: SIGUSR1 and SIGUSR2 for communication.
 
+- - - 
 <h3 align="left">
 	:computer: Usage
 </h3>
